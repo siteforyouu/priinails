@@ -240,6 +240,18 @@ section{position:relative}
 .card-body p{font-size:14px;color:var(--paper-2);opacity:.86}
 .card-num{position:absolute;top:14px;left:14px;z-index:2;font-size:10px;letter-spacing:.24em;color:var(--paper);opacity:.8;padding:6px 10px;border-radius:999px;background:rgba(10,8,7,.4);border:1px solid var(--glass-line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
 
+/* catálogo */
+.catalog{background:var(--ink)}
+.price-list{list-style:none;margin:clamp(28px,4vw,56px) 0 0;padding:0;border-top:1px solid var(--line)}
+.price-row{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px clamp(16px,2vw,32px);align-items:baseline;
+  padding-block:clamp(16px,2.1vw,26px);border-bottom:1px solid var(--line-2)}
+.price-row::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:linear-gradient(90deg,var(--gold),rgba(201,169,106,0));transition:width .7s var(--ease)}
+.price-row:hover::after{width:100%}
+.price-name{font-family:var(--serif);font-size:clamp(21px,2.3vw,31px);line-height:1.12;letter-spacing:-.005em}
+.price-desc{display:block;font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--paper-2);opacity:.7;margin-top:5px;max-width:46ch}
+.price-val{font-family:var(--serif);font-size:clamp(18px,1.9vw,25px);color:var(--gold-2);white-space:nowrap;font-variant-numeric:lining-nums tabular-nums;font-feature-settings:'lnum' 1}
+.price-note{margin-top:var(--s5);font-size:12.5px;line-height:1.6;color:var(--paper-2);opacity:.62;max-width:62ch}
+
 /* manifesto */
 .manifesto{background:linear-gradient(180deg,var(--ink) 0%,var(--ink-2) 40%,var(--ink) 100%)}
 .manifesto-txt{font-family:var(--serif);font-size:clamp(28px,4.6vw,66px);line-height:1.16;letter-spacing:-.01em;max-width:22ch}
@@ -328,6 +340,8 @@ section{position:relative}
   .manifesto-fig{aspect-ratio:4/5}
 }
 @media (max-width:520px){
+  .price-name{font-size:20px}
+  .price-val{font-size:17px}
   .hero h1{font-size:clamp(40px,11.5vw,58px)}
   .hero-sub{font-size:15px}
   .btn{width:100%}
@@ -362,6 +376,7 @@ section{position:relative}
   <nav class="nav-links" aria-label="Navegação principal">
     <a href="#estudio">Estúdio</a>
     <a href="#servicos">Serviços</a>
+    <a href="#catalogo">Valores</a>
     <a href="#galeria">Galeria</a>
     <a href="#contato">Contato</a>
   </nav>
@@ -375,6 +390,7 @@ section{position:relative}
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <a href="#estudio">Estúdio</a>
   <a href="#servicos">Serviços</a>
+  <a href="#catalogo">Valores</a>
   <a href="#galeria">Galeria</a>
   <a href="#contato">Contato</a>
   <a href="https://wa.me/5565992370100" target="_blank" rel="noopener">Agendar</a>
@@ -468,6 +484,47 @@ section{position:relative}
           </div>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section class="section-pad catalog" id="catalogo" aria-labelledby="cat-title">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow">Catálogo</p>
+        <h2 id="cat-title">Serviços e <em>valores</em>.</h2>
+        <p>O que está disponível hoje, com o valor de cada serviço. Alongamento e banho de gel incluem a manutenção combinada no retorno.</p>
+      </div>
+      <ul class="price-list">
+        <li class="price-row" data-reveal>
+          <span class="price-name">Pedicure tradicional<span class="price-desc">Cutilagem, lixamento e esmaltação nos pés.</span></span>
+          <span class="price-val">R$ 55</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Mão tradicional<span class="price-desc">Cutilagem, lixamento e esmaltação nas mãos.</span></span>
+          <span class="price-val">R$ 50</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Blindagem<span class="price-desc">Camada de proteção sobre a unha natural, para quem quer comprimento curto e resistência.</span></span>
+          <span class="price-val">R$ 180</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Banho de gel<span class="price-desc">Reforço de gel sobre a unha natural, sem alongar.</span></span>
+          <span class="price-val">R$ 230</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Colocação em fibra ou molde F1<span class="price-desc">Alongamento em fibra de vidro ou molde F1, com estrutura leve e curvatura natural.</span></span>
+          <span class="price-val">R$ 330</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Spa dos pés<span class="price-desc">Retira a calosidade, lixa e finaliza com hidratação.</span></span>
+          <span class="price-val">R$ 120</span>
+        </li>
+        <li class="price-row" data-reveal>
+          <span class="price-name">Pedicure com esmaltação em gel<span class="price-desc">Pedicure completa com acabamento em gel de longa duração.</span></span>
+          <span class="price-val">R$ 130</span>
+        </li>
+      </ul>
+      <p class="price-note" data-reveal>Valores do catálogo atual. Como o de unha muda com o comprimento e o estado da unha, confirme o valor final no WhatsApp antes de agendar.</p>
     </div>
   </section>
 
